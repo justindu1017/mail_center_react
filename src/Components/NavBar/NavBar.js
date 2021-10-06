@@ -3,10 +3,45 @@ import NavSvg from "./NavSvg";
 
 export class NavBar extends Component {
   render() {
+    const optionList = [
+      {
+        id: "0",
+        name: "writeMail",
+        urlLink: "writeMail",
+        icon: "pen",
+        width: 40,
+        height: 40,
+      },
+      {
+        id: "1",
+        name: "writeMail",
+        urlLink: "writeMail",
+        icon: "pen",
+        width: 40,
+        height: 40,
+      },
+      {
+        id: "2",
+        name: "writeMail",
+        urlLink: "writeMail",
+        icon: "pen",
+        width: 40,
+        height: 40,
+      },
+      {
+        id: "3",
+        name: "writeMail",
+        urlLink: "writeMail",
+        icon: "pen",
+        width: 40,
+        height: 40,
+      },
+    ];
+
     return (
       <div>
         <nav
-          class="
+          className="
           mainNavBar
           shadow
           h-100
@@ -19,7 +54,7 @@ export class NavBar extends Component {
           onmouseleave="grayOutToggle()"
         >
           <ul
-            class="
+            className="
             h-100
             d-flex
             justify-content-around
@@ -28,13 +63,13 @@ export class NavBar extends Component {
             list-unstyled
           "
           >
-            <li class="d-flex w-100 logo">
+            <li className="d-flex w-100 logo">
               <NavSvg icon={"justify"} width={40} height={40} href={"#"} />
             </li>
-            <li class="d-flex w-100">
-              <div class="d-flex flex-wrap align-items-center">
-                <ul class="list-unstyled">
-                  <li class="d-flex option mb-3">
+            <li className="d-flex w-100">
+              <div className="d-flex flex-wrap align-items-center">
+                <ul className="list-unstyled">
+                  <li className="d-flex option mb-3">
                     <NavSvg
                       icon={"pen"}
                       width={40}
@@ -42,7 +77,7 @@ export class NavBar extends Component {
                       href={"./writeMail.html"}
                     />
                   </li>
-                  <li class="d-flex option mb-3">
+                  <li className="d-flex option mb-3">
                     <NavSvg
                       icon={"inbox"}
                       width={40}
@@ -50,7 +85,7 @@ export class NavBar extends Component {
                       href={"./writeMail.html"}
                     />
                   </li>
-                  <li class="d-flex option mb-3">
+                  <li className="d-flex option mb-3">
                     <NavSvg
                       icon={"box-arrow-up-right"}
                       width={40}
@@ -58,7 +93,7 @@ export class NavBar extends Component {
                       href={"./writeMail.html"}
                     />
                   </li>
-                  <li class="d-flex option mb-3">
+                  <li className="d-flex option mb-3">
                     <NavSvg
                       icon={"trash"}
                       width={40}
@@ -69,7 +104,7 @@ export class NavBar extends Component {
                 </ul>
               </div>
             </li>
-            <li class="d-flex w-100">
+            <li className="d-flex w-100">
               <NavSvg
                 icon={"moon"}
                 width={40}
