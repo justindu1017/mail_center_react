@@ -5,6 +5,7 @@ import {
   Inbox,
   BoxArrowUpRight,
   Trash,
+  Sun,
   Moon,
 } from "react-bootstrap-icons";
 
@@ -47,6 +48,12 @@ export class NavSvg extends Component {
         return (
           <a className="d-flex align-items-center" href={href ? href : ""}>
             <Trash width={width ? width : 16} height={height ? height : 16} />
+          </a>
+        );
+      case "sun":
+        return (
+          <a className="d-flex align-items-center" href={href ? href : ""}>
+            <Sun width={width ? width : 16} height={height ? height : 16} />
           </a>
         );
 

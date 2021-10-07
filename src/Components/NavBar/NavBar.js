@@ -6,7 +6,7 @@ export class NavBar extends Component {
     const optionList = [
       {
         id: "0",
-        name: "writeMail",
+        name: "write",
         urlLink: "writeMail",
         icon: "pen",
         width: 40,
@@ -14,25 +14,25 @@ export class NavBar extends Component {
       },
       {
         id: "1",
-        name: "writeMail",
-        urlLink: "writeMail",
-        icon: "pen",
+        name: "inbox",
+        urlLink: "inbox",
+        icon: "inbox",
         width: 40,
         height: 40,
       },
       {
         id: "2",
-        name: "writeMail",
-        urlLink: "writeMail",
-        icon: "pen",
+        name: "sent",
+        urlLink: "sent",
+        icon: "box-arrow-up-right",
         width: 40,
         height: 40,
       },
       {
         id: "3",
-        name: "writeMail",
-        urlLink: "writeMail",
-        icon: "pen",
+        name: "trash",
+        urlLink: "trash",
+        icon: "trash",
         width: 40,
         height: 40,
       },
@@ -69,44 +69,26 @@ export class NavBar extends Component {
             <li className="d-flex w-100">
               <div className="d-flex flex-wrap align-items-center">
                 <ul className="list-unstyled">
-                  <li className="d-flex option mb-3">
+
+                {optionList.map(element => {
+                  console.log(element);
+                  return <li key = {element.id} className="d-flex option mb-3">
                     <NavSvg
-                      icon={"pen"}
-                      width={40}
-                      height={40}
-                      href={"./writeMail.html"}
+                      icon={element.icon}
+                      width={element.width}
+                      height={element.height}
+                      href={element.urlLink}
                     />
+                     <span className="ms-2 fs-4"> {element.name} </span>
                   </li>
-                  <li className="d-flex option mb-3">
-                    <NavSvg
-                      icon={"inbox"}
-                      width={40}
-                      height={40}
-                      href={"./writeMail.html"}
-                    />
-                  </li>
-                  <li className="d-flex option mb-3">
-                    <NavSvg
-                      icon={"box-arrow-up-right"}
-                      width={40}
-                      height={40}
-                      href={"./writeMail.html"}
-                    />
-                  </li>
-                  <li className="d-flex option mb-3">
-                    <NavSvg
-                      icon={"trash"}
-                      width={40}
-                      height={40}
-                      href={"./deleted.html"}
-                    />
-                  </li>
+                })}
+
                 </ul>
               </div>
             </li>
             <li className="d-flex w-100">
               <NavSvg
-                icon={"moon"}
+                icon={"sun"}
                 width={40}
                 height={40}
                 href={"./deleted.html"}
