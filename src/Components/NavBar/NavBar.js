@@ -3,6 +3,13 @@ import NavSvg from "./NavSvg";
 
 export class NavBar extends Component {
   render() {
+
+
+    this.state = {
+      isHover = false
+    }
+
+
     const optionList = [
       {
         id: "0",
@@ -38,6 +45,10 @@ export class NavBar extends Component {
       },
     ];
 
+    function grayOutToggle() {
+      const [state, setstate] = useState(initialState)
+    }
+
     return (
       <div>
         <nav
@@ -50,8 +61,8 @@ export class NavBar extends Component {
           ps-1
           user-select-none
         "
-          onmouseenter="grayOutToggle()"
-          onmouseleave="grayOutToggle()"
+          onMouseEnter={grayOutToggle}
+          onMouseLeave={grayOutToggle}
         >
           <ul
             className="
@@ -65,6 +76,7 @@ export class NavBar extends Component {
           >
             <li className="d-flex w-100 logo">
               <NavSvg icon={"justify"} width={40} height={40} href={"#"} />
+              <span className="ms-2 fs-4">Mail Center</span>
             </li>
             <li className="d-flex w-100">
               <div className="d-flex flex-wrap align-items-center">
@@ -93,6 +105,7 @@ export class NavBar extends Component {
                 height={40}
                 href={"./deleted.html"}
               />
+              <span className="ms-2 fs-5 aText">dark mode</span>
             </li>
           </ul>
         </nav>
