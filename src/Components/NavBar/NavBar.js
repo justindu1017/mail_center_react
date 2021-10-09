@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Grayout from "./Grayout";
 import NavSvg from "./NavSvg";
+import { Link } from "react-router-dom";
 
 export class NavBar extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ export class NavBar extends Component {
     {
       id: "0",
       name: "write",
-      urlLink: "writeMail",
+      urlLink: "/writemail",
       icon: "pen",
       width: 40,
       height: 40,
@@ -35,7 +36,7 @@ export class NavBar extends Component {
     {
       id: "1",
       name: "inbox",
-      urlLink: "inbox",
+      urlLink: "/",
       icon: "inbox",
       width: 40,
       height: 40,
@@ -43,7 +44,7 @@ export class NavBar extends Component {
     {
       id: "2",
       name: "sent",
-      urlLink: "sent",
+      urlLink: "/sent",
       icon: "box-arrow-up-right",
       width: 40,
       height: 40,
@@ -51,7 +52,7 @@ export class NavBar extends Component {
     {
       id: "3",
       name: "trash",
-      urlLink: "trash",
+      urlLink: "/trash",
       icon: "trash",
       width: 40,
       height: 40,
@@ -91,18 +92,24 @@ export class NavBar extends Component {
               <span className="ms-2 fs-4">Mail Center</span>
             </li>
             <li className="d-flex w-100">
-              <div className="d-flex flex-wrap align-items-center">
+              <div className="d-flex flex-wrap align-items-center w-100">
                 <ul className="list-unstyled">
                   {this.optionList.map((element) => {
                     return (
                       <li key={element.id} className="d-flex option mb-3">
-                        <NavSvg
-                          icon={element.icon}
-                          width={element.width}
-                          height={element.height}
-                          href={element.urlLink}
-                        />
-                        <span className="ms-2 fs-4"> {element.name} </span>
+                        <Link to={element.urlLink}>
+                          <div className="d-flex float-start">
+                            <div className="w-50">
+                              <NavSvg
+                                icon={element.icon}
+                                width={element.width}
+                                height={element.height}
+                              />
+                            </div>
+
+                            <span className="ms-2 fs-4"> {element.name} </span>
+                          </div>
+                        </Link>
                       </li>
                     );
                   })}
@@ -118,7 +125,7 @@ export class NavBar extends Component {
                 icon={this.state.DMIcon}
                 width={40}
                 height={40}
-                href={"./deleted.html"}
+                // todo: implement darkmode
               />
               <span className="ms-2 fs-5 aText">dark mode</span>
             </li>

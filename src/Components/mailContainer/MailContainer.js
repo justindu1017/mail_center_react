@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+
 import MailTag from "./MailTag";
 import mail from "../../script/mailBox/mail.js";
 
 export class MailContainer extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       mailList: [],
     };
@@ -13,7 +13,6 @@ export class MailContainer extends Component {
 
   componentDidMount() {
     mail.listMail.then((res) => {
-      console.log(res.data);
       this.setState({ mailList: res.data });
     });
   }
@@ -31,7 +30,8 @@ export class MailContainer extends Component {
               return (
                 <MailTag
                   key={el._id}
-                  title={el.subject}
+                  _id={el._id}
+                  subject={el.subject}
                   content={el.content}
                   sender={el.sender}
                 />

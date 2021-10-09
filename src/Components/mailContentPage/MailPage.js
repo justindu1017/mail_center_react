@@ -1,41 +1,56 @@
 import React, { Component } from "react";
+import mail from "../../script/mailBox/mail.js";
 
 export class MailPage extends Component {
-  render() {
-    // post api get content???
-    const { title, content, sender, date } = this.props;
+  delMail = (id) => {
+    mail.deleteMail(id).then((res) => {
+      if (res) {
+        alert("信件刪除成功!");
+        window.location.href = "/";
+      }
+    });
+  };
 
+  render() {
+    const { _id, subject, content, sender } = this.props.location.passProps;
     return (
-      <div class="ms-5">
-        <main class="pt-3">
-          <div class="px-3">
-            <div class="d-flex flex-column m-5">
-              <div class="Title mb-2">
-                <h2>{title}</h2>
+      <div className="ms-5">
+        <main className="pt-3">
+          <div className="px-3">
+            <div className="d-flex flex-column m-5">
+              <div className="Title mb-2">
+                <h2>{subject}</h2>
               </div>
-              <div class="d-flex mb-2">
-                <div class="d-flex w-50">
+              <div className="d-flex mb-2">
+                <div className="d-flex w-50">
                   <span>from: </span>
                   <div>{sender}</div>
                 </div>
-                <div class="w-50">{date}</div>
+                {/* <div className="w-50">{date}</div> */}
               </div>
-              <div class="content mb-2">
+              <div className="content mb-2">
                 <div>{content}</div>
               </div>
-              <div class="d-flex justify-content-evenly mt-5">
+              <div className="d-flex justify-content-evenly mt-5">
                 <div>
-                  <button class="btn btn-primary">reply</button>
+                  <button className="btn btn-primary">reply</button>
                 </div>
                 <div>
-                  <button class="btn btn-success">forward</button>
+                  <button className="btn btn-success">forward</button>
                 </div>
                 <div>
-                  <button class="btn btn-danger">delete</button>
+                  <button
+                    onClick={() => {
+                      this.delMail(_id);
+                    }}
+                    className="btn btn-danger"
+                  >
+                    delete
+                  </button>
                 </div>
-                <div>
-                  <button class="btn btn-warning">archive</button>
-                </div>
+                {/* <div>
+                  <button className="btn btn-warning">archive</button>
+                </div> */}
               </div>
             </div>
           </div>

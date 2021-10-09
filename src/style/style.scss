@@ -91,8 +91,8 @@ a:hover {
     }
   }
   span {
-    // display: none;
-    visibility: hidden;
+    display: none;
+    // visibility: hidden;
     width: 0rem;
     opacity: 0%;
   }
@@ -112,8 +112,8 @@ a:hover {
     // }
 
     span {
-      // display: block;
-      visibility: visible;
+      display: block;
+      // visibility: visible;
       transition-property: opacity, width;
       transition-duration: 0.5s;
       transition-delay: 0.5s;

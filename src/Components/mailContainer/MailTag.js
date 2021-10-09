@@ -1,15 +1,22 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export class MailTag extends Component {
   render() {
-    const { title, content, sender } = this.props;
+    const { _id, subject, content, sender } = this.props;
 
     return (
       <div>
-        <a
-          href="
-        // todo: href
-        "
+        <Link
+          to={{
+            pathname: "/" + _id,
+            passProps: {
+              _id: _id,
+              subject: subject,
+              content: content,
+              sender: sender,
+            },
+          }}
         >
           <div
             className="
@@ -25,7 +32,7 @@ export class MailTag extends Component {
               "
           >
             <div className="d-flex align-items-center">
-              <h3 className="expandNoWrapLine w-75">{title}</h3>
+              <h3 className="expandNoWrapLine w-75">{subject}</h3>
 
               <div className="d-flex w-25 ms-3 ps-3">
                 <span>from: </span>
@@ -37,7 +44,7 @@ export class MailTag extends Component {
               {/* <div className="w-25 ms-3 ps-3">{date}</div> */}
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     );
   }

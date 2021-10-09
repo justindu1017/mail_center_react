@@ -1,4 +1,6 @@
 import React, { Component, components } from "react";
+import { Link } from "react-router-dom";
+
 import {
   Justify,
   Pen,
@@ -11,57 +13,65 @@ import {
 
 export class NavSvg extends Component {
   render() {
-    const { icon, width, height, href } = this.props;
+    const { icon, width, height } = this.props;
 
     switch (icon) {
       case "justify":
         return (
-          <a className="d-flex align-items-center" href={href ? href : ""}>
-            <Justify width={width ? width : 16} height={height ? height : 16} />
-          </a>
+          // <div className="d-flex align-items-center">
+          <Justify width={width ? width : 16} height={height ? height : 16} />
+          // </div>
         );
       case "pen":
         return (
-          <a className="d-flex align-items-center" href={href ? href : ""}>
-            <Pen width={width ? width : 16} height={height ? height : 16} />
-          </a>
+          // <Link>
+
+          //   <Trash width={width ? width : 16} height={height ? height : 16} />
+          // </Link>
+          // <div className="d-flex align-items-center">
+          <Pen width={width ? width : 16} height={height ? height : 16} />
+          // </div>
         );
 
       case "inbox":
         return (
-          <a className="d-flex align-items-center" href={href ? href : ""}>
-            <Inbox width={width ? width : 16} height={height ? height : 16} />
-          </a>
+          // <div className="d-flex align-items-center">
+          <Inbox width={width ? width : 16} height={height ? height : 16} />
+          // </div>
         );
 
       case "box-arrow-up-right":
         return (
-          <a className="d-flex align-items-center" href={href ? href : ""}>
-            <BoxArrowUpRight
-              width={width ? width : 16}
-              height={height ? height : 16}
-            />
-          </a>
+          // <div className="d-flex align-items-center">
+          <BoxArrowUpRight
+            width={width ? width : 16}
+            height={height ? height : 16}
+          />
+          // </div>
         );
 
       case "trash":
         return (
-          <a className="d-flex align-items-center" href={href ? href : ""}>
-            <Trash width={width ? width : 16} height={height ? height : 16} />
-          </a>
+          // <Link className="d-flex align-items-center">
+          //   <Trash width={width ? width : 16} height={height ? height : 16} />
+          // </Link>
+
+          // <div className="d-flex align-items-center">
+          <Trash width={width ? width : 16} height={height ? height : 16} />
+          // </div>
         );
       case "sun":
         return (
-          <a className="d-flex align-items-center" href={href ? href : ""}>
-            <Sun width={width ? width : 16} height={height ? height : 16} />
-          </a>
+          // <div className="d-flex align-items-center">
+          <Sun width={width ? width : 16} height={height ? height : 16} />
+          // </div>
         );
 
       case "moon":
         return (
-          <a className="d-flex align-items-center" href={href ? href : ""}>
-            <Moon width={width ? width : 16} height={height ? height : 16} />
-          </a>
+          // <div className="d-flex align-items-center">
+          <Moon width={width ? width : 16} height={height ? height : 16} />
+          // </div>
         );
 
       default:
