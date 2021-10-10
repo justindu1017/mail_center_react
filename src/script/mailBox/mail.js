@@ -19,11 +19,7 @@ module.exports = {
     });
   },
   showMail: function (id) {
-    return axios
-      .get(process.env.REACT_APP_MailboxUrl + "/" + id)
-      .then((res) => {
-        return res;
-      });
+    return axios.get(process.env.REACT_APP_MailboxUrl + "/" + id);
   },
 
   updateMail: function () {

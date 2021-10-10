@@ -12,7 +12,8 @@ export class MailPage extends Component {
   };
 
   render() {
-    const { _id, subject, content, sender } = this.props.location.passProps;
+    const { _id, subject, content, sender, senderName } =
+      this.props.location.passProps;
     return (
       <div className="ms-5">
         <main className="pt-3">
@@ -24,7 +25,7 @@ export class MailPage extends Component {
               <div className="d-flex mb-2">
                 <div className="d-flex w-50">
                   <span>from: </span>
-                  <div>{sender}</div>
+                  <div>{senderName}</div>
                 </div>
                 {/* <div className="w-50">{date}</div> */}
               </div>
@@ -48,9 +49,6 @@ export class MailPage extends Component {
                     delete
                   </button>
                 </div>
-                {/* <div>
-                  <button className="btn btn-warning">archive</button>
-                </div> */}
               </div>
             </div>
           </div>

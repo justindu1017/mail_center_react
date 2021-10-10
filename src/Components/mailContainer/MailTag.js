@@ -1,7 +1,23 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import user from "../../script/m_User/user.js";
 
 export class MailTag extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      senderName: "",
+    };
+  }
+
+  componentDidMount() {
+    user.getUserById(this.props.sender).then((res) => {
+      console.log(res.data);
+      this.setState({ senderName: res.data.name });
+    });
+  }
+
   render() {
     const { _id, subject, content, sender } = this.props;
 
@@ -15,6 +31,7 @@ export class MailTag extends Component {
               subject: subject,
               content: content,
               sender: sender,
+              senderName: this.state.senderName,
             },
           }}
         >
@@ -36,7 +53,7 @@ export class MailTag extends Component {
 
               <div className="d-flex w-25 ms-3 ps-3">
                 <span>from: </span>
-                <div>{sender}</div>
+                <div>{this.state.senderName}</div>
               </div>
             </div>
             <div className="d-flex align-items-center justify-content-between">

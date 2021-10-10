@@ -88,9 +88,12 @@ export class NavBar extends Component {
           "
           >
             <li className="d-flex w-100 logo">
-              <NavSvg icon={"justify"} width={40} height={40} href={"#"} />
-              <span className="ms-2 fs-4">Mail Center</span>
+              <Link to={"/"} className="d-flex">
+                <NavSvg icon={"justify"} width={40} height={40} href={"#"} />
+                <span className="ms-2 fs-4">Mail Center</span>
+              </Link>
             </li>
+
             <li className="d-flex w-100">
               <div className="d-flex flex-wrap align-items-center w-100">
                 <ul className="list-unstyled">
@@ -120,6 +123,9 @@ export class NavBar extends Component {
               className="d-flex w-100"
               onMouseLeave={this.changeIcon}
               onMouseEnter={this.changeIcon}
+              onClick={() => {
+                document.querySelector("body").classList.toggle("dark");
+              }}
             >
               <NavSvg
                 icon={this.state.DMIcon}

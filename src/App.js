@@ -17,7 +17,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={MailContainer} />
             <Route path="/writemail" exact component={WriteMail} />
-            <Route path="/trash" exact component={WriteMail} />
+            {/* <Route path="/trash" exact component={WriteMail} /> */}
             <Route path="/:id" component={MailPage} />
           </Switch>
         </div>
