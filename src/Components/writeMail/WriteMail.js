@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import mail from "../../script/mailBox/mail.js";
 
+/**
+ * WriteMail.js
+ * where you can send mail
+ */
+
 export class WriteMail extends Component {
   sendMail = (e) => {
     e.preventDefault();
-    // todo: change sender
+    // TODO: change sender
     const sender = "614a2ac98ac0063b0750ca6e";
     const receivers = document
       .getElementById("receiver")
@@ -12,23 +17,24 @@ export class WriteMail extends Component {
     const subject = document.getElementById("subject").value;
     const content = document.getElementById("content").value;
 
+    // cant send if any required is missing
     if (receivers === "" || subject === "" || content === "") {
       alert("請確認所有欄位都已填寫");
       return;
     }
 
+    // split users into array
+    // TODO: need api
     const receiver = receivers.split(",");
 
+    // call create mail api to send mail
     mail.createMail(sender, receiver, subject, content).then((res) => {
       alert("寄件成功!");
       window.location.href = "/";
     });
-
-    // console.log("receivers = ", receivers);
-    // console.log("subject = ", subject);
-    // console.log("content = ", content);
   };
 
+  // check if start with space
   validCheck = (el) => {
     if (/^\s/.test(el.value)) {
       el.value = "";

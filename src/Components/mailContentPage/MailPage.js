@@ -3,10 +3,15 @@ import mail from "../../script/mailBox/mail.js";
 
 /**
  * MailPage.js
- *
+ * by clicking on mail tag, pass props (_id, subject, content, sender, senderName)
+ * the main page to display mail content
  */
 
 export class MailPage extends Component {
+  /**
+   * delete mail function
+   * call deleMail api
+   */
   delMail = (id) => {
     mail.deleteMail(id).then((res) => {
       if (res) {
@@ -19,6 +24,7 @@ export class MailPage extends Component {
   render() {
     const { _id, subject, content, sender, senderName } =
       this.props.location.passProps;
+
     return (
       <div className="ms-5">
         <main className="pt-3">
@@ -39,12 +45,15 @@ export class MailPage extends Component {
               </div>
               <div className="d-flex justify-content-evenly mt-5">
                 <div>
+                  {/* TODO go to write mail page but need api to reply!!! */}
                   <button className="btn btn-primary">reply</button>
                 </div>
                 <div>
+                  {/* TODO forward the mail, open model, enter receiver, call createMail api*/}
                   <button className="btn btn-success">forward</button>
                 </div>
                 <div>
+                  {/* delete mail */}
                   <button
                     onClick={() => {
                       this.delMail(_id);

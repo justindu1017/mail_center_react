@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 
+/**
+ * Grayout.js
+ * the covering when hovering on the navbar
+ */
 export class Grayout extends Component {
   render() {
     const { isHover } = this.props;

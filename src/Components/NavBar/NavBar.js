@@ -3,6 +3,11 @@ import Grayout from "./Grayout";
 import NavSvg from "./NavSvg";
 import { Link } from "react-router-dom";
 
+/**
+ * NavBar.js
+ * the file for building the navbar
+ */
+
 export class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -10,20 +15,27 @@ export class NavBar extends Component {
       isHover: false,
       DMIcon: "sun",
     };
-
+    // binding the method to "this" else cant be called
     this.grayOutToggle = this.grayOutToggle.bind(this);
     this.changeIcon = this.changeIcon.bind(this);
   }
+
+  // if hovering on nav => toggle grayout
   grayOutToggle() {
     this.setState({
       isHover: !this.state.isHover,
     });
   }
+
+  // if hovering on night mode icon => change icon
   changeIcon() {
     this.setState({
       DMIcon: this.state.DMIcon === "moon" ? "sun" : "moon",
     });
   }
+
+  // to make the component reuseable, put all the available
+  // option in the list, than map all the option to NavSvg
   optionList = [
     {
       id: "0",
@@ -127,12 +139,7 @@ export class NavBar extends Component {
                 document.querySelector("body").classList.toggle("dark");
               }}
             >
-              <NavSvg
-                icon={this.state.DMIcon}
-                width={40}
-                height={40}
-                // todo: implement darkmode
-              />
+              <NavSvg icon={this.state.DMIcon} width={40} height={40} />
               <span className="ms-2 fs-5 aText">dark mode</span>
             </li>
           </ul>
