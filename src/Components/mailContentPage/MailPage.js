@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import mail from "../../script/mailBox/mail.js";
 
+/**
+ * MailPage.js
+ *
+ */
+
 export class MailPage extends Component {
   delMail = (id) => {
     mail.deleteMail(id).then((res) => {

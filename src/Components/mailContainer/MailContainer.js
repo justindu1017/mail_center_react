@@ -3,6 +3,13 @@ import React, { Component } from "react";
 import MailTag from "./MailTag";
 import mail from "../../script/mailBox/mail.js";
 
+/**
+ * MailContainer.js
+ * the main container for mail tags
+ * after fetching from server
+ * map each mail info to a mail tag
+ */
+
 export class MailContainer extends Component {
   constructor(props) {
     super(props);

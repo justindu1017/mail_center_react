@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import user from "../../script/m_User/user.js";
 
+/**
+ * MailTag.js
+ * after getting mail info, pass props(_id, subject, content, sender)
+ * compose a mail tag
+ * also a link to MailPage
+ */
+
 export class MailTag extends Component {
   constructor(props) {
     super(props);
